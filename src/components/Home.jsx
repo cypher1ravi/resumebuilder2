@@ -27,18 +27,6 @@ const images = [
         imageUrl: Temp4Image,
         title: 'Template 4',
     },
-    {
-        imageUrl: Temp4Image,
-        title: 'Template 4',
-    },
-    {
-        imageUrl: Temp4Image,
-        title: 'Template 4',
-    },
-    {
-        imageUrl: Temp4Image,
-        title: 'Template 4',
-    },
 
 ];
 
