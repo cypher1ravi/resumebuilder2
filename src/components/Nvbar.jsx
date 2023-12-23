@@ -36,13 +36,13 @@ function Navbar() {
         }}>
             <MyToolbar>
                 <MyTypography variant="h6" component="div">
-                    almaBetter
+                    ALmaBetter
                 </MyTypography>
                 <div>
-                    <MyButton color="inherit" component={Link} to="/">Home</MyButton>
+                    <MyButton color="inherit" component={Link} to="/">Resume Templates</MyButton>
                     {/* <MyButton color="inherit" component={Link} to="/details">Details</MyButton> */}
-                    <MyButton color="inherit" component={Link} to="/Preview">Preview</MyButton>
-                    <MyButton color="inherit" component={Link} to="/about">About US</MyButton>
+                    <MyButton color="inherit" component={Link} to="/Preview">My Resumes</MyButton>
+                    <MyButton color="inherit" component={Link} to="/about">About Us</MyButton>
                 </div>
             </MyToolbar>
         </AppBar>

@@ -26,7 +26,12 @@ const images = [
     {
         imageUrl: Temp4Image,
         title: 'Template 4',
+<<<<<<< HEAD
     }
+=======
+    },
+
+>>>>>>> e58edd46acc93fdf955bf56c62b58e3b2ccd243f
 ];
 
 const Home = () => {
