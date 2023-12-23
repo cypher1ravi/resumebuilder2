@@ -13,13 +13,9 @@ import Skills from './templeteComponents/Skills';
 
 const useStyles = {
     root: {
-        width: '210mm',
-        height: '297mm',
+        margin: 'auto',
         padding: '20px',
         border: '2px double tomato',
-        backgroundColor: '#93b8d6',
-        alignItem: 'center'
-
     },
 
     title: {
@@ -40,12 +36,12 @@ const useStyles = {
 export default function Template3() {
     return (
         <Paper style={useStyles.root} elevation={3}>
-            <Typography variant="h3" style={useStyles.title}>
+            <Typography variant="h4" style={useStyles.title}>
                 <Box fontWeight="bold">
                     <Name />
                 </Box>
             </Typography>
-            <Typography variant="h5" style={useStyles.marginTitle}>
+            <Typography variant="h6" style={useStyles.marginTitle}>
                 <Title />
             </Typography>
             <Contact />

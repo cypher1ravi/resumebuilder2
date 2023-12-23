@@ -9,7 +9,7 @@ import { Container, Paper, Typography, Grid } from '@mui/material';
 export default function Template1() {
 
     return (
-        <Container sx={{ padding: 3, backgroundColor: '#F0F0F0', fontFamily: 'Arial, sans-serif' }}>
+        <Container sx={{ padding: 3, maxHeight: '60%', width: '60%', backgroundColor: '#F0F0F0', fontFamily: 'Arial, sans-serif' }}>
             <Paper sx={{ padding: 3, marginBottom: 3, backgroundColor: '#2196F3', color: 'white' }}>
                 <Name />
                 <Title />
