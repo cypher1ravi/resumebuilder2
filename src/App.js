@@ -11,13 +11,15 @@ import PersonalDetails from './components/details/PersonalDetails';
 import Education from './components/details/Education';
 import WorkDetails from './components/details/WorkDetails';
 import SkillsDetails from './components/details/SkillsDetails';
+import ReloadAlert from './components/ReloadAlert';
+import TestPage from './components/TestPage';
 
 
 function App() {
   return (
     <>
       <Navbar />
-
+      <ReloadAlert />
       <Container>
 
 
@@ -31,6 +33,7 @@ function App() {
           </Route>
           <Route path='preview' element={<Preview />} />
           <Route path='about' element={<About />} />
+          <Route path='test' element={<TestPage />} />
 
 
         </Routes >

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Name, Title } from './templeteComponents/Header';
-import Contact from './templeteComponents/Contact';
+import { Phone, Email, Address } from './templeteComponents/Contact';
 import { Degree, Institution, Year } from './templeteComponents/Education';
 import WorkExperience from './templeteComponents/WorkExperience';
 import Skills from './templeteComponents/Skills';
@@ -18,7 +18,9 @@ export default function Template1() {
                 <Typography variant="h6" sx={{ marginBottom: 2, color: '#2196F3' }}>
                     Contact Information
                 </Typography>
-                <Contact />
+                <Phone />
+                <Email />
+                <Address />
             </Paper>
             <Paper sx={{ padding: 3, marginBottom: 3, backgroundColor: '#FFFFFF' }}>
                 <Grid container spacing={3}>

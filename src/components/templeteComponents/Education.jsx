@@ -19,9 +19,9 @@ export const Degree = () => {
     return (
         <div>
             {educationInfo.map((edu, index) => (
-                <div key={index}>
-                    <p>Degree: {edu.degree}</p>
-                </div>
+                <span key={index}>
+                    {edu.degree}
+                </span>
             ))}
         </div>
     );

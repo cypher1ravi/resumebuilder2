@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 
 // Keep your existing imports for custom components
 import { Name, Title, Summary } from './templeteComponents/Header';
-import Contact from './templeteComponents/Contact';
+import { Phone, Email, Address } from './templeteComponents/Contact';
 import { Degree, Institution, Year, Subject } from './templeteComponents/Education';
 import WorkExperience from './templeteComponents/WorkExperience';
 import Skills from './templeteComponents/Skills';
@@ -44,7 +44,9 @@ export default function Template3() {
             <Typography variant="h6" style={useStyles.marginTitle}>
                 <Title />
             </Typography>
-            <Contact />
+            <Phone />
+            <Email />
+            <Address />
             {/* <Typography variant="">
             </Typography> */}
 

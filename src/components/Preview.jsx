@@ -6,7 +6,7 @@ import {
     Button,
     TextField,
     Typography,
-    Container,
+    Card,
     Grid,
     Paper,
     Dialog,
@@ -20,6 +20,7 @@ import Template1 from './Template1';
 import Template2 from './Template2';
 import Template3 from './Template3';
 import Template4 from './Template4';
+import Template5 from './Template5';
 
 const containerStyle = {
     width: '100%',
@@ -81,7 +82,7 @@ export default function Preview() {
 
     return (
         <>
-            <Typography variant="h5" style={{ marginBottom: '10px' }}>
+            <Typography variant="h5" style={{ margin: '10px' }}>
                 Preview page
             </Typography>
             <div style={containerStyle}>
@@ -97,7 +98,7 @@ export default function Preview() {
                                     case 2:
                                         return <Template3 />;
                                     case 3:
-                                        return <Template4 />;
+                                        return <Template5 />;
                                     default:
                                         return <div>No template selected</div>;
                                 }
@@ -105,7 +106,10 @@ export default function Preview() {
                         </Paper>
                     </Grid>
                     <Grid item xs={12} md={4}>
-                        <Paper style={{ padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                        <Typography variant="h6" style={{ marginBottom: '10px' }}>
+                            Create File
+                        </Typography>
+                        <Card variant='outlined' style={{ padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                             <TextField
                                 label="File Name"
                                 value={fileName}
@@ -116,7 +120,7 @@ export default function Preview() {
                             <Button variant="contained" color="primary" onClick={generatePDF} style={{ marginBottom: '10px' }}>
                                 Save
                             </Button>
-                        </Paper>
+                        </Card>
                     </Grid>
                 </Grid>
             </div>

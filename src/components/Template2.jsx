@@ -1,78 +1,180 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+
 import {
-    Paper,
+    LinkedIn as LinkedInIcon,
+    GitHub as GitHubIcon,
+    Phone as PhoneIcon,
+    LocationOn as LocationOnIcon,
+    WorkOutline as WorkOutlinedIcon,
+    Mail as MailIcon,
+    Description as DescriptionIcon,
+    Language as LanguageIcon,
+    HandymanOutlined as HandymanOutlinedIcon,
+    SchoolOutlined as SchoolOutlinedIcon
+} from '@mui/icons-material';
+import {
     Typography,
-    Grid,
-    List,
-    ListItem,
-    ListItemText,
-    Divider,
+    LinearProgress,
+
 } from '@mui/material';
-import { Name, Summary, Title } from './templeteComponents/Header'
+import '../css/template2.css';
 
-const headerStyle = {
-    backgroundColor: 'lightblue',
-    color: 'white',
-    padding: '16px',
-};
+export default function Template2() {
+    const educationInfo = useSelector((state) => state.education.educationList);
+    const workInfo = useSelector((state) => state.workDetails.workList);
+    const personalInfo = useSelector((state) => state.personalInformation);
+    const skillsInfo = useSelector((state) => state.keySkills.skillList);
 
-const dividerStyle = {
-    margin: '20px 0',
-};
-
-const Template2 = () => {
     return (
-        <div>
-            <Paper style={{ padding: '16px', margin: 'auto', maxWidth: 800 }}>
-                <Grid container spacing={2}>
-                    <Grid item xs={12} style={headerStyle}>
-                        <Typography variant="h4" align="center">
-                            <Name />
-                        </Typography>
-                        <Typography variant="subtitle1" align="center">
-                            <Title />
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography variant="h6">Summary</Typography>
-                        <Typography>
-                            <Summary />
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Divider style={dividerStyle} />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography variant="h6">Education</Typography>
-                        <List>
-                            <ListItem>
-                                <ListItemText
-                                    primary="Degree"
-                                    secondary="University Name, Graduation Date"
-                                />
-                            </ListItem>
-                            {/* Add more education items as needed */}
-                        </List>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Divider style={dividerStyle} />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography variant="h6">Experience</Typography>
-                        <List>
-                            <ListItem>
-                                <ListItemText
-                                    primary="Job Title"
-                                    secondary="Company Name, Employment Date"
-                                />
-                            </ListItem>
-                            {/* Add more experience items as needed */}
-                        </List>
-                    </Grid>
-                </Grid>
-            </Paper>
-        </div>
-    );
-};
+        <div className="sheet ">
+            <div className="two-column resume">
+                <section className="resume__section resume__header">
+                    <div className="resume__content">
+                        <div>
+                            <Typography variant="h1">{personalInfo.firstName} {personalInfo.lastName}
+                            </Typography>
 
-export default Template2;
+                            <Typography marginLeft={4} variant="h2">{personalInfo.title}
+                            </Typography>
+                        </div>
+
+                        <div className="info-item">
+                            <span className="info-label">
+                                <i >< LocationOnIcon fontSize='smaller' /></i>
+                            </span>
+                            <span className="info-text">
+                                {personalInfo.address}
+                            </span>
+                        </div>
+                        <div className="info-item">
+                            <span className="info-label">
+                                <i ><MailIcon fontSize='smaller' /></i>
+                            </span>
+                            <span className="info-text">{personalInfo.email}</span>
+                        </div>
+                        <div className="info-item">
+                            <span className="info-label">
+                                <i><PhoneIcon fontSize='smaller' /></i>
+                            </span>
+                            <span className="info-text">{personalInfo.phone}</span>
+                        </div>
+                    </div>
+                </section>
+                <div className="resume__columns">
+                    <div className="resume__main">
+                        <section className="resume__section resume__summary">
+                            <div className="resume__content">
+                                <div className="resume__section-title">
+                                    <i><DescriptionIcon /></i>
+                                    <Typography variant="h2">Professional Summary</Typography>
+                                </div>
+                                <div className="other">
+                                    <div className="other-info">
+                                        <p>
+                                            {personalInfo.objective}
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section className="resume__section resume__experience">
+                            <div className="resume__content">
+                                <div className="resume__section-title">
+                                    <i><SchoolOutlinedIcon /></i>
+                                    <Typography variant="h2">Education</Typography>
+                                </div>
+                                <div className="xp-item">
+                                    {workInfo.map((e, index) => (
+                                        < >
+                                            <div className="xp-job" key={index} >
+                                                {e.degree}
+                                                <br />
+                                                <small>{e.institution}</small>
+                                            </div>
+                                            <div className="xp-date"> {e.year} </div>
+                                        </ >
+                                    ))}
+                                </div>
+
+                            </div>
+                        </section>
+                        <section className="resume__section resume__experience">
+                            <div className="resume__content">
+                                <div className="resume__section-title">
+                                    <i><WorkOutlinedIcon /></i>
+                                    <Typography variant="h2">Employment History</Typography>
+                                </div>
+                                <div className="xp-item">
+                                    {workInfo.map((w, index) => (
+                                        < >
+                                            <div className="xp-job" key={index} >
+                                                {w.position}
+                                                <br />
+                                                <small>@ {w.company}</small>
+                                            </div>
+                                            <div className="xp-date"> {w.startDate} – {w.endDate}</div>
+                                        </ >
+                                    ))}
+                                </div>
+
+                            </div>
+                        </section>
+
+                    </div>
+                    <div className="resume__side">
+                        <section className="resume__section resume__skills">
+                            <div className="resume__content">
+                                <div className="resume__section-title">
+                                    <i><HandymanOutlinedIcon /></i>
+                                    <Typography variant="h2">Skills</Typography>
+                                </div>
+                                <div className="resume__text">
+                                    {skillsInfo.map((s, index) => (
+                                        <div className="extra" key={index}>
+                                            <div className="extra-info">
+                                                <i>{s.skill}</i><br />
+                                            </div>
+                                            <div className="extra-details">
+                                                <LinearProgress variant="determinate" value={s.level} />
+                                            </div>
+                                        </div>
+                                    ))}
+
+                                </div>
+                            </div>
+                        </section>
+                        <section className="resume__section resume__languages">
+                            <div className="resume__content">
+                                <div className="resume__section-title">
+                                    <i><LanguageIcon /></i>
+                                    <Typography variant="h2">Follows</Typography>
+                                </div>
+                                <div className="info-item">
+                                    <span className="info-label">
+                                        <i >< GitHubIcon fontSize='small' /></i>
+                                    </span>
+                                    <span className="info-text">
+                                        <a href="http://github.com" target="blank" rel="noopener noreferrer">github</a>
+                                    </span>
+                                </div>
+                                <div className="info-item">
+                                    <span className="info-label">
+                                        <i >< LinkedInIcon fontSize='small' /></i>
+                                    </span>
+                                    <span className="info-text">
+                                        <a href={3} target="_blank" rel="noopener noreferrer">user name</a>
+                                    </span>
+                                </div>
+
+
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div >
+        </div >
+    );
+}
