@@ -35,20 +35,28 @@ const SkillsDetails = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <TextField
-                label="Skill"
-                variant="outlined"
-                {...register("skill", { required: true })}
-            />
-            <TextField
-                label="Level"
-                variant="outlined"
-                {...register("level", { required: true })}
-            />
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        label="Skill"
+                        variant="outlined"
+                        fullWidth
+                        {...register("skill", { required: true })}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}   >
+                    <TextField
+                        label="Proficiency Level"
+                        type='number'
+                        variant="outlined"
+                        {...register("level", { required: true })}
 
-            <Button type="submit" variant="contained" color="primary">
-                Add
-            </Button>
+                    />
+                    <Button type="submit" variant="contained" color="primary" style={{ margin: '8px' }}>
+                        Add
+                    </Button>
+                </Grid>
+            </Grid>
 
             <List>
                 {skillList.map((skill, index) => (

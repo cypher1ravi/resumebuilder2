@@ -87,7 +87,7 @@ export default function Template2() {
                                     <Typography variant="h2">Education</Typography>
                                 </div>
                                 <div className="xp-item">
-                                    {workInfo.map((e, index) => (
+                                    {educationInfo.map((e, index) => (
                                         < >
                                             <div className="xp-job" key={index} >
                                                 {e.degree}
@@ -111,11 +111,11 @@ export default function Template2() {
                                     {workInfo.map((w, index) => (
                                         < >
                                             <div className="xp-job" key={index} >
-                                                {w.position}
-                                                <br />
-                                                <small>@ {w.company}</small>
+                                                {w.position}<span>@{w.company}</span>
                                             </div>
-                                            <div className="xp-date"> {w.startDate} – {w.endDate}</div>
+                                            <div className="xp-date"> {w.startDate} – {w.endDate}
+                                            </div>
+                                            <div className="xp-detail">{w.workDesc}</div>
                                         </ >
                                     ))}
                                 </div>

@@ -1,51 +1,140 @@
 import React from 'react';
-import { Name, Title } from './templeteComponents/Header';
-import { Phone, Email, Address } from './templeteComponents/Contact';
-import { Degree, Institution, Year } from './templeteComponents/Education';
-import WorkExperience from './templeteComponents/WorkExperience';
-import Skills from './templeteComponents/Skills';
-import { Container, Paper, Typography, Grid } from '@mui/material';
+import { useSelector } from 'react-redux';
+import {
+    LinkedIn as LinkedInIcon,
+    GitHub as GitHubIcon,
+    Phone as PhoneIcon,
+    LocationOn as LocationOnIcon,
+    Mail as MailIcon,
 
-export default function Template1() {
+} from '@mui/icons-material';
 
-    return (
-        <Container sx={{ padding: 3, maxHeight: '60%', width: '60%', backgroundColor: '#F0F0F0', fontFamily: 'Arial, sans-serif' }}>
-            <Paper sx={{ padding: 3, marginBottom: 3, backgroundColor: '#2196F3', color: 'white' }}>
-                <Name />
-                <Title />
-            </Paper>
-            <Paper sx={{ padding: 3, marginBottom: 3, backgroundColor: '#FFFFFF' }}>
-                <Typography variant="h6" sx={{ marginBottom: 2, color: '#2196F3' }}>
-                    Contact Information
-                </Typography>
-                <Phone />
-                <Email />
-                <Address />
-            </Paper>
-            <Paper sx={{ padding: 3, marginBottom: 3, backgroundColor: '#FFFFFF' }}>
-                <Grid container spacing={3}>
-                    <Grid item xs={6}>
-                        <Typography variant="h6" sx={{ marginBottom: 2, color: '#2196F3' }}>
-                            Education
-                        </Typography>
-                        <Degree />
-                        <Institution />
-                        <Year />
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography variant="h6" sx={{ marginBottom: 2, color: '#2196F3' }}>
-                            Work Experience
-                        </Typography>
-                        <WorkExperience />
-                    </Grid>
-                </Grid>
-            </Paper>
-            <Paper sx={{ padding: 3, backgroundColor: '#FFFFFF' }}>
-                <Typography variant="h6" sx={{ marginBottom: 2, color: '#2196F3' }}>
-                    Skills
-                </Typography>
-                <Skills />
-            </Paper>
-        </Container >
+import '../css/template1.css';
+
+
+
+const Template1 = () => {
+    const personalInfo = useSelector((state) => state.personalInformation);
+    const educationInfo = useSelector((state) => state.education.educationList);
+    const workInfo = useSelector((state) => state.workDetails.workList);
+    const skillsInfo = useSelector((state) => state.keySkills.skillList);
+    return (<div className="container">
+
+
+        <main className="main-content">
+            <section className="left-section">
+                <div className="left-content">
+                    <div className="profile">
+
+                        <h2 className="name">{personalInfo.firstName} {personalInfo.lastName}</h2>
+                        <p className="career">{personalInfo.title}</p>
+                    </div>
+                    <div className="contact-info">
+                        <h3 className="main-title">Contact Info</h3>
+                        <ul>
+                            <li>
+                                <i ><LocationOnIcon /></i>
+                                {personalInfo.address}
+                            </li>
+                            <li>
+                                <i><PhoneIcon /></i>
+                                {personalInfo.phone}
+                            </li>
+                            <li>
+                                <i ><MailIcon /></i>
+                                {personalInfo.email}
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="skills-section">
+                        <h3 className="main-title">Skills</h3>
+                        <ul>
+                            {skillsInfo.map((s, index) => (
+                                <li key={index}>
+                                    <p className="skill-title">{s.skill}</p>
+                                    <div className="progress-bar">
+                                        <div className="progress " style={{ width: `${s.level}%` }}></div>
+                                    </div>
+                                </li>
+                            ))}
+
+                        </ul>
+                    </div>
+                    <div class="contact-info">
+                        <h3 class="main-title">Follow On</h3>
+                        <ul>
+                            <li>
+                                <i ><GitHubIcon /></i>
+                                <a href="http://github.com" target="_blank" rel="noopener noreferrer">Github name</a>
+                            </li>
+                            <li>
+                                <i ><LinkedInIcon /></i>
+                                <a href="http://linkedin.com" target="_blank" rel="noopener noreferrer">Linkedin name</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+            <section className="right-section">
+                <div className="right-main-content">
+                    <section className="about sect">
+                        <h2 className="right-title">About Me</h2>
+                        <p className="para">
+                            {personalInfo.objective}
+                        </p>
+                    </section>
+
+                    <section className="experince sect">
+                        <h2 className="right-title">Experience</h2>
+                        {workInfo.map((w, index) => (
+                            <div className="timeline" key={index}>
+                                <div className="left-tl-content">
+                                    <h5 className="tl-title">{w.company}</h5>
+                                    <p className="para">{w.startDate}-{w.endDate}</p>
+                                </div>
+                                <div className="right-tl-content">
+                                    <div className="tl-content">
+                                        <h5 className="tl-title-2">{w.position}</h5>
+                                        <p className="para">
+                                            {w.workDesc}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+
+                    </section>
+                    <section className="education sect">
+                        <h2 className="right-title">education</h2>
+                        {educationInfo.map((e, index) => (
+                            <div className="timeline" key={index}>
+                                <div className="left-tl-content">
+                                    <h5 className="tl-title">{e.institute}</h5>
+                                    <p className="para">{e.year}</p>
+                                </div>
+                                <div className="right-tl-content">
+                                    <div className="tl-content">
+                                        <h5 className="tl-title-2">{e.subject}</h5>
+                                        <p className="para">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias cupiditate vitae
+                                            voluptatem deleniti,
+                                            laboriosam odio nobis quae fugit facilis quo.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        ))}
+
+
+                    </section>
+
+                </div>
+            </section>
+        </main>
+    </div>
     );
-}
+};
+
+export default Template1;

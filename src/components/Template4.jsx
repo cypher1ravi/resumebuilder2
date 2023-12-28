@@ -1,6 +1,6 @@
 import React from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import CodeIcon from '@mui/icons-material/Code';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -10,9 +10,9 @@ import LaptopCodeIcon from '@mui/icons-material/Laptop';
 import { useSelector } from 'react-redux';
 
 
-import "../css/style.css";
+import "../css/template4.css";
 
-export default function Template() {
+export default function Template4() {
     const educationInfo = useSelector((state) => state.education.educationList);
     const workInfo = useSelector((state) => state.workDetails.workList);
     const personalInfo = useSelector((state) => state.personalInformation);
@@ -36,20 +36,20 @@ export default function Template() {
                     <div className="intro-section about">
                         <h1 className="title">about me</h1>
                         <p className="paragraph">
-                            {personalInfo.bjective}</p>
+                            {personalInfo.objective}</p>
                     </div>
                     <div className="intro-section contact">
                         <h1 className="title">Contact</h1>
                         <div className="info-section">
-                            <PhoneIcon />
+                            <i><PhoneIcon /></i>
                             <span>{personalInfo.phone}</span>
                         </div>
                         <div className="info-section">
-                            <LocationOnIcon />
+                            <i><LocationOnIcon /></i>
                             <span>{personalInfo.address}</span>
                         </div>
                         <div className="info-section">
-                            <EmailIcon />
+                            <i> <EmailIcon /></i>
                             <span>{personalInfo.email}</span>
                         </div>
 
@@ -57,16 +57,12 @@ export default function Template() {
                     <div className="intro-section follow">
                         <h1 className="title">Follow</h1>
                         <div className="info-section link">
-                            <GitHubIcon />
-                            <a target="_blank" rel="author" href="https://github.com/chih-hsi-chen">
-                                <span>chih-hsi-chen@github</span>
-                            </a>
+                            <i><GitHubIcon /></i>
+                            <a href="http://github.com" target="_blank" rel="noopener noreferrer"><span>Github</span></a>
                         </div>
                         <div className="info-section link">
-                            <CodeIcon />
-                            <a target="_blank" rel="author" href="https://codepen.io/chih-hsi-chen">
-                                <span>codepen.io</span>
-                            </a>
+                            <i><LinkedInIcon /></i>
+                            <a href="http://linkedin.com" target="_blank" rel="noopener noreferrer"><span>Linkedin</span></a>
                         </div>
 
                     </div>
@@ -74,7 +70,7 @@ export default function Template() {
                 <div className="detail">
                     <div className="detail-section edu">
                         <div className="detail-title">
-                            <SchoolIcon />
+                            <i><SchoolIcon /></i>
                             <span>Education</span>
                         </div>
                         <div className="detail-content">
@@ -89,15 +85,16 @@ export default function Template() {
                         </div>
                         <div className="detail-section edu">
                             <div className="detail-title">
-                                <WorkIcon />
+                                <i> <WorkIcon /></i>
                                 <span>Work Experience</span>
                             </div>
                             <div className="detail-content">
                                 {workInfo.map((w, index) => (
                                     <div className="timeline-block" key={index}>
                                         <h1>{w.position}</h1>
-                                        <p>{w.company}</p>
+                                        <h5>{w.company}</h5>
                                         <time>{w.startDate}-{w.endDate}</time>
+                                        <p>{w.workDesc}</p>
                                     </div>
                                 ))}
                             </div>
@@ -105,7 +102,7 @@ export default function Template() {
                     </div>
                     <div className="detail-section pg-skill">
                         <div className="detail-title">
-                            <LaptopCodeIcon />
+                            <i><LaptopCodeIcon /></i>
                             <span> skills</span>
                         </div>
                         <div className="detail-content">

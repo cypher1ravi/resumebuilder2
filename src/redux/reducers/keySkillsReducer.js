@@ -1,7 +1,7 @@
 import { ADD_SKILL, REMOVE_SKILL } from '../actions/keySkillsAction';
 
 const initialState = {
-    skillList: [],
+    skillList: [{ skill: 'Html', level: '90' }],
 };
 
 const keySkillsReducer = (state = initialState, action) => {

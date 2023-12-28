@@ -20,7 +20,7 @@ import Template1 from './Template1';
 import Template2 from './Template2';
 import Template3 from './Template3';
 import Template4 from './Template4';
-import Template5 from './Template5';
+// import Template5 from './Template5';
 
 const containerStyle = {
     width: '100%',
@@ -59,10 +59,10 @@ export default function Preview() {
                 selectedComponent = <Template2 />;
                 break;
             case 2:
-                selectedComponent = <div><Template3 /></div>;
+                selectedComponent = <Template3 />;
                 break;
             case 3:
-                selectedComponent = <div><Template4 /></div>;
+                selectedComponent = <Template4 />;
                 break;
             default:
                 selectedComponent = <div>No template selected</div>;
@@ -98,7 +98,7 @@ export default function Preview() {
                                     case 2:
                                         return <Template3 />;
                                     case 3:
-                                        return <Template5 />;
+                                        return <Template4 />;
                                     default:
                                         return <div>No template selected</div>;
                                 }

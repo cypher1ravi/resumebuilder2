@@ -49,7 +49,7 @@ export default function DetailsBar() {
                                 { text: 'Key Skills', NavLink: '/details/keySkills' },
                             ].map((item, index) => (
                                 <ListItem
-                                    key={item.text}
+                                    key={index}
                                     disablePadding
                                     sx={{
                                         backgroundColor: location.pathname === item.NavLink ? '#e0e0e0' : 'transparent',

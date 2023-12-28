@@ -25,18 +25,13 @@ html {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background-color: var(--color-gray-light-3);
-}
-
 .wrapper {
   margin: 0 auto;
   max-width: 70rem;
   background-color: var(--color-gray-light-2);
   display: flex;
   box-shadow: 0px 0px 15px 4px #b3b3b3;
+  max-height: 1090.41px;
 }
 
 .intro {
@@ -121,14 +116,14 @@ body {
 
 .link span::after {
   position: absolute;
-  content: "";
+  content: " ";
   left: 50%;
   bottom: -3px;
   width: 0;
   height: 2px;
   background-color: var(--profile-theme);
   transition: width 0.3s;
-  /*transition-timing-function: cubic-bezier(.64,.51,.16,.86);*/
+  /* transition-timing-function: cubic-bezier(0.64, 0.51, 0.16, 0.86); */
   transition-timing-function: cubic-bezier(0.92, 0.57, 0.33, 1.02);
   transform: translate(-50%, 0);
 }

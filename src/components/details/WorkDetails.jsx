@@ -19,6 +19,7 @@ export default function WorkDetails() {
       position: data.position,
       startDate: data.startDate,
       endDate: data.endDate,
+      workDesc: data.workDesc
     };
     setWorkExperiences([...workExperiences, newWorkExperience]);
     dispatch(addWorkExperience(newWorkExperience));
@@ -59,7 +60,7 @@ export default function WorkDetails() {
         <Grid item xs={12} sm={6}>
           <TextField
             label="Start Date"
-            type="date"
+            type="month"
             variant="outlined"
             fullWidth
             {...register("startDate", { required: true })}
@@ -71,13 +72,23 @@ export default function WorkDetails() {
         <Grid item xs={12} sm={6}>
           <TextField
             label="End Date"
-            type="date"
+            type="month"
             variant="outlined"
             fullWidth
             {...register("endDate", { required: true })}
             InputLabelProps={{
               shrink: true,
             }}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Description"
+            variant="outlined"
+            multiline
+            rows={2}
+            fullWidth
+            {...register("workDesc", { required: true, maxLength: 60 })}
           />
         </Grid>
         <Grid item>

@@ -27,7 +27,7 @@ export default function PersonalDetails() {
 
     };
     return (
-        <Container maxWidth="sm">
+        <Container >
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={6}>
@@ -110,7 +110,7 @@ export default function PersonalDetails() {
                             label="Address"
                             variant="outlined"
                             fullWidth
-                            {...register("address")}
+                            {...register("address", { required: true })}
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">

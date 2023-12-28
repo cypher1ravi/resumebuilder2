@@ -5,9 +5,9 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
-
+import logo from "../images/almabetter_logo.svg"
 const MyToolbar = styled(Toolbar)({
-    backgroundColor: '#2196f3',
+    backgroundColor: '#90a7fc',
     '@media (max-width: 600px)': { // Adjust styles for screens with a max-width of 600px
         flexDirection: 'column',
         alignItems: 'center',
@@ -35,8 +35,10 @@ function Navbar() {
             // zIndex: '1'
         }}>
             <MyToolbar>
-                <MyTypography variant="h6" component="div">
-                    ALmaBetter
+                <MyTypography component="div">
+                    <MyButton component={Link} to="/">
+                        <img src={logo} alt="AlmaBatter" style={{ width: '8rem' }} />
+                    </MyButton>
                 </MyTypography>
                 <div>
                     <MyButton color="inherit" component={Link} to="/">Resume Templates</MyButton>
