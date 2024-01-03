@@ -65,11 +65,12 @@ const Template1 = () => {
                         <ul>
                             <li>
                                 <i ><GitHubIcon /></i>
-                                <a href="http://github.com" target="_blank" rel="noopener noreferrer">Github name</a>
+                                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">Github</a>
                             </li>
                             <li>
                                 <i ><LinkedInIcon /></i>
-                                <a href="http://linkedin.com" target="_blank" rel="noopener noreferrer">Linkedin name</a>
+                                <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">Linkedin</a>
+
                             </li>
                         </ul>
                     </div>

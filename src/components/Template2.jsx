@@ -157,7 +157,7 @@ export default function Template2() {
                                         <i >< GitHubIcon fontSize='small' /></i>
                                     </span>
                                     <span className="info-text">
-                                        <a href="http://github.com" target="blank" rel="noopener noreferrer">github</a>
+                                        <a href={personalInfo.github} target="blank" rel="noopener noreferrer">{personalInfo.github}</a>
                                     </span>
                                 </div>
                                 <div className="info-item">
@@ -165,7 +165,7 @@ export default function Template2() {
                                         <i >< LinkedInIcon fontSize='small' /></i>
                                     </span>
                                     <span className="info-text">
-                                        <a href={3} target="_blank" rel="noopener noreferrer">user name</a>
+                                        <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">{personalInfo.linkedin}</a>
                                     </span>
                                 </div>
 

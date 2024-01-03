@@ -10,6 +10,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import TitleIcon from '@mui/icons-material/Title';
 import TrackChangesIcon from '@mui/icons-material/TrackChanges';
 import { updatePersonalInformation } from '../../redux/actions/personalInfoActions';
+import { GitHub, LinkedIn } from '@mui/icons-material';
 
 
 export default function PersonalDetails() {
@@ -23,7 +24,6 @@ export default function PersonalDetails() {
         dispatch(updatePersonalInformation(data));
         navigate('/details/workExperience')
 
-        console.log(data);
 
     };
     return (
@@ -100,6 +100,38 @@ export default function PersonalDetails() {
                                 startAdornment: (
                                     <InputAdornment position="start">
                                         <PhoneIcon />
+                                    </InputAdornment>
+                                ),
+                            }}
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <TextField
+                            label="Github"
+                            variant="outlined"
+                            type='url'
+                            fullWidth
+                            {...register("github", {})}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <GitHub />
+                                    </InputAdornment>
+                                ),
+                            }}
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <TextField
+                            label="Linkedin"
+                            type='url'
+                            variant="outlined"
+                            fullWidth
+                            {...register("linkedin", {})}
+                            InputProps={{
+                                startAdornment: (
+                                    <InputAdornment position="start">
+                                        <LinkedIn />
                                     </InputAdornment>
                                 ),
                             }}

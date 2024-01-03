@@ -1,21 +1,28 @@
 // ReloadAlert.js
-import React, { useState, useEffect } from 'react';
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 export default function ReloadAlert() {
-    const [open, setOpen] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleBeforeUnload = (event) => {
             const message = 'Are you sure you want to leave? Unsaved changes will be lost.';
             event.returnValue = message;
-            setOpen(true);
+        };
+
+        const handleReload = () => {
+            navigate('/');
         };
 
         window.addEventListener('beforeunload', handleBeforeUnload);
+        window.addEventListener('load', handleReload);
 
         return () => {
             window.removeEventListener('beforeunload', handleBeforeUnload);
+            window.removeEventListener('load', handleReload);
         };
-    }, []);
-}    
+    }, [navigate]);
+
+    return null;
+}

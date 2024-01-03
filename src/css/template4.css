@@ -16,14 +16,7 @@
   --percent: 100;
 }
 
-html {
-  font-size: 100%;
-  font-family: "PT Sans", sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
+/*  */
 
 .wrapper {
   margin: 0 auto;
@@ -88,6 +81,7 @@ html {
 }
 .about .paragraph {
   text-align: justify;
+  margin-bottom: 1rem;
 }
 .info-section {
   margin: 1rem 0;
