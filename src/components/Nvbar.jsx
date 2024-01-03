@@ -37,14 +37,14 @@ function Navbar() {
             <MyToolbar>
                 <MyTypography component="div">
                     <MyButton component={Link} to="/">
-                        <img src={logo} alt="AlmaBatter" style={{ width: '8rem' }} />
+                        <img src={logo} alt="AlmaBetter" style={{ width: '8rem' }} />
                     </MyButton>
                 </MyTypography>
                 <div>
-                    <MyButton color="inherit" component={Link} to="/">Resume Templates</MyButton>
+                    <MyButton sx={{ backgroundColor: 'blue' }} color='inherit' component={Link} to="/">Resume Templates</MyButton>
                     {/* <MyButton color="inherit" component={Link} to="/details">Details</MyButton> */}
-                    <MyButton color="inherit" component={Link} to="/Preview">My Resumes</MyButton>
-                    <MyButton color="inherit" component={Link} to="/about">About Us</MyButton>
+                    <MyButton sx={{ color: 'black' }} component={Link} to="/Preview">My Resumes</MyButton>
+                    <MyButton sx={{ color: 'black' }} component={Link} to="/about">About Us</MyButton>
                 </div>
             </MyToolbar>
         </AppBar>
