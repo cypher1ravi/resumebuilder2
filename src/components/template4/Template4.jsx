@@ -10,24 +10,25 @@ import LaptopCodeIcon from '@mui/icons-material/Laptop';
 import { useSelector } from 'react-redux';
 
 
-import "../css/template4.css";
+import "./template4.css";
 
 export default function Template4() {
     const educationInfo = useSelector((state) => state.education.educationList);
     const workInfo = useSelector((state) => state.workDetails.workList);
     const personalInfo = useSelector((state) => state.personalInformation);
     const skillsInfo = useSelector((state) => state.keySkills.skillList);
+    const profileImage = useSelector((state) => state.profileImg)
 
 
 
     return (
-        <div>
+        <div className='template4'>
             <div className="wrapper">
                 <div className="intro">
-                    <div className="profile">
-                        {/* <div className="photo">
-                            <img alt="Chih-Hsiang Chen" src="https://i.imgur.com/zh9eNsh.jpg" />
-                        </div> */}
+                    <div className="profile2">
+                        <div className="photo">
+                            <img alt="Chih-Hsiang Chen" src={profileImage.imageSrc} />
+                        </div>
                         <div className="bio">
                             <h1 className="name">{personalInfo.firstName} {personalInfo.lastName}</h1>
                             <p className="profession">{personalInfo.title}</p>

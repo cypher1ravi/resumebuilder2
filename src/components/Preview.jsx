@@ -16,10 +16,10 @@ import {
     DialogActions,
 } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import Template1 from './Template1';
-import Template2 from './Template2';
-import Template3 from './Template3';
-import Template4 from './Template4';
+import Template1 from './template1/Template1';
+import Template2 from './template2/Template2';
+import Template3 from './template3/Template3';
+import Template4 from './template4/Template4';
 // import Template5 from './Template5';
 
 const containerStyle = {

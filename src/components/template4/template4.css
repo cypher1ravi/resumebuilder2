@@ -1,4 +1,4 @@
-:root {
+.template4 {
   --color-gray-light-1: #f8f8f8;
   --color-gray-light-2: #e9e9e9;
   --color-gray-light-3: #dedede;
@@ -16,8 +16,6 @@
   --percent: 100;
 }
 
-/*  */
-
 .wrapper {
   margin: 0 auto;
   max-width: 70rem;
@@ -33,7 +31,7 @@
   box-shadow: 5px 0px 15px 0px #b3b3b3;
   z-index: 5;
 }
-.profile {
+.profile2 {
   position: relative;
   background-color: var(--profile-theme);
   padding: 2rem 1rem;
@@ -41,7 +39,7 @@
   text-align: center;
   user-select: none;
 }
-.profile::after {
+.profile2::after {
   content: " ";
   position: absolute;
   left: 0;
@@ -52,7 +50,7 @@
   transform: skewY(-5deg);
 }
 .photo img {
-  width: 80%;
+  width: 50%;
   border-radius: 50%;
 }
 .bio .name {
@@ -117,7 +115,7 @@
   height: 2px;
   background-color: var(--profile-theme);
   transition: width 0.3s;
-  /* transition-timing-function: cubic-bezier(0.64, 0.51, 0.16, 0.86); */
+  transition-timing-function: cubic-bezier(0.64, 0.51, 0.16, 0.86);
   transition-timing-function: cubic-bezier(0.92, 0.57, 0.33, 1.02);
   transform: translate(-50%, 0);
 }

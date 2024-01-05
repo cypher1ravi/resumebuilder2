@@ -5,7 +5,7 @@ import { Delete as DeleteIcon } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEducation, deleteEducation } from '../../redux/actions/educationAction'
 import { useNavigate } from 'react-router-dom';
-export default function App() {
+export default function Educatio() {
     const { register, handleSubmit, reset } = useForm();
     const dispatch = useDispatch();
     const navigate = useNavigate()

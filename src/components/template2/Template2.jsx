@@ -19,7 +19,7 @@ import {
     LinearProgress,
 
 } from '@mui/material';
-import '../css/template2.css';
+import './template2.css';
 
 export default function Template2() {
     const educationInfo = useSelector((state) => state.education.educationList);
