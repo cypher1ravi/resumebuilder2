@@ -1,6 +1,7 @@
 import { SET_IMAGE } from '../actions/profileImgAction'
+import porfileImg from '../../images/profileImg.png'
 const initialState = {
-    imageSrc: 'https://png.pngtree.com/png-clipart/20190629/original/pngtree-vector-edit-profile-icon-png-image_4102545.jpg',
+    imageSrc: porfileImg,
 };
 
 const profileImgReducer = (state = initialState, action) => {

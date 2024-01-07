@@ -14,6 +14,7 @@ import {
     DialogContent,
     DialogContentText,
     DialogActions,
+
 } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Template1 from './template1/Template1';
@@ -32,8 +33,8 @@ const containerStyle = {
 
 const paperStyle = {
     width: '100%',
-    padding: '20px',
-    marginBottom: '20px',
+    // padding: '20px',
+    // marginBottom: '20px',
     boxSizing: 'border-box',
 };
 
@@ -69,7 +70,7 @@ export default function Preview() {
         }
 
         html2canvas(previewRef.current).then((canvas) => {
-            const imgData = canvas.toDataURL('image/png');
+            const imgData = canvas.toDataURL('image/png/jpg');
             doc.addImage(imgData, 'PNG', 0, 0, 210, 297);
             doc.save(`${fileName}.pdf`);
             setShowSuccessDialog(true);
@@ -85,6 +86,7 @@ export default function Preview() {
             <Typography variant="h5" style={{ margin: '10px' }}>
                 Preview page
             </Typography>
+
             <div style={containerStyle}>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={8}>

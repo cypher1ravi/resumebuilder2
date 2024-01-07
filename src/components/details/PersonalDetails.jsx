@@ -32,31 +32,9 @@ export default function PersonalDetails() {
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <Grid container spacing={10}>
-                    <Grid item sx={12} sm={3}>
+                    <Grid item sm={3}>
                         <Grid container spacing={2}>
                             <ProfileImg />
-                            {/* <Grid item>
-                                <img
-                                    src={''}
-                                    alt="Selected"
-                                    style={{ maxWidth: '100%', maxHeight: '100%', width: '150px', height: '150px', objectFit: 'cover' }}
-                                />
-                                <Input
-                                    label="Image"
-                                    type='file'
-                                    variant="outlined"
-                                    accept="image/*"
-                                    row={4}
-                                    {...register("profileImg", {})}
-                                    InputProps={{
-                                        startAdornment: (
-                                            <InputAdornment position="start">
-                                                <Image />
-                                            </InputAdornment>
-                                        ),
-                                    }}
-                                />
-                            </Grid> */}
                         </Grid>
                     </Grid>
                     <Grid item sx={12} sm={8}>

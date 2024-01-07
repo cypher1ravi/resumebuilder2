@@ -27,7 +27,7 @@ const Template1 = () => {
             <main className="main-content">
                 <section className="left-section">
                     <div className="left-content">
-                        <div className="profile">
+                        <div className="profile1">
                             <div className="image1">
                                 <img src={profileImage.imageSrc} alt="" />
                             </div>
@@ -65,8 +65,8 @@ const Template1 = () => {
 
                             </ul>
                         </div>
-                        <div class="contact-info">
-                            <h3 class="main-title">Follow On</h3>
+                        <div className="contact-info">
+                            <h3 className="main-title">Follow On</h3>
                             <ul>
                                 <li>
                                     <i ><GitHubIcon /></i>

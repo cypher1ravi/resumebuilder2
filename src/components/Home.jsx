@@ -4,10 +4,10 @@ import { useDispatch } from 'react-redux';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { Grid, Typography } from '@mui/material/';
-import Temp1Image from '../images/temp1.jpg';
-import Temp2Image from '../images/temp2.jpg';
-import Temp3Image from '../images/temp3.jpg';
-import Temp4Image from '../images/temp4.jpg';
+import Temp1Image from '../images/temp1.png';
+import Temp2Image from '../images/temp2.png';
+import Temp3Image from '../images/temp3.png';
+import Temp4Image from '../images/temp4.png';
 import { selectCard } from '../redux/actions/selectCardAction';
 
 const images = [
@@ -70,7 +70,7 @@ const Home = () => {
                             alt={image.title}
                             style={{
                                 width: '100%',
-                                height: 'auto',
+                                height: '350px',
                                 transition: 'opacity 0.5s',
                                 opacity: hoveredIndex === index ? 0.7 : 1,
                             }}

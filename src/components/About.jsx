@@ -1,50 +1,74 @@
 import React from 'react';
-import { IconButton } from '@mui/material';
+import { IconButton, Grid, Paper, Divider, Typography } from '@mui/material';
 import { Facebook, WhatsApp, LinkedIn, Twitter, MailOutline } from '@mui/icons-material';
-import '../css/AboutUs.css';
+import sideImage from '../images/About-us-image.png';
 
 const AboutUs = () => {
   return (
-    <div className="about-us-container">
-      <h1><i>Resume Builder</i></h1>
-      <p>
-        Welcome to our Resume Builder website! We are dedicated to helping you create
-        professional and visually appealing resumes that stand out.
-      </p>
-      <p>
-        Our mission is to provide an easy-to-use platform where you can craft your
-        resume with confidence. Whether you're a recent graduate or a seasoned
-        professional, our tools and templates are designed to suit your needs.
-      </p>
-      <p>
-        Feel free to explore our features, customize your resume, and download the
-        final result in various formats. Your success is our priority!
-      </p>
-      <p>
-        Thank you for choosing our Resume Builder. If you have any questions or
-        feedback, please don't hesitate to reach out to us. We're here to help you
-        on your journey to career success.
-      </p>
+    <Grid container padding={1}>
+      <Grid item>
+        <Typography variant='h3'>Resume Builder</Typography>
+        <Divider orientation="horizontal" style={{ backgroundColor: 'blue', height: '3px' }} />
+      </Grid>
 
-      {/* Social Media Icons */}
-      <div className="social-icons">
-        <IconButton href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-          <Facebook />
-        </IconButton>
-        <IconButton href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer">
-          <WhatsApp />
-        </IconButton>
-        <IconButton href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-          <LinkedIn />
-        </IconButton>
-        <IconButton href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-          <Twitter />
-        </IconButton>
-        <IconButton href="mailto:info@example.com">
-          <MailOutline />
-        </IconButton>
-      </div>
-    </div>
+      <Grid container spacing={0} paddingTop={'2rem'}>
+        <Grid item xs={12} md={6} lg={7} xl={8} >
+          <div>
+            <p>
+              Welcome to our Resume Builder website! We are dedicated to helping you create professional and visually
+              appealing resumes that stand out.
+            </p>
+            <p>
+              Our mission is to provide an easy-to-use platform where you can craft your resume with confidence. Whether
+              you're a recent graduate or a seasoned professional, our tools and templates are designed to suit your
+              needs.
+            </p>
+            <p>
+              Feel free to explore our features, customize your resume, and download the final result in various formats.
+              Your success is our priority!
+            </p>
+            <p>
+              Thank you for choosing our Resume Builder. If you have any questions or feedback, please don't hesitate to
+              reach out to us. We're here to help you on your journey to career success.
+            </p>
+          </div>
+          <div style={{ margin: '20px' }}>
+            <h3>Share With your friend
+            </h3>
+
+            <IconButton href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <Facebook style={{ color: '#1877f2', fontSize: '30px' }} />
+            </IconButton>
+            <IconButton href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer">
+              <WhatsApp style={{ color: '#25D366', fontSize: '30px' }} />
+            </IconButton>
+            <IconButton href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+              <LinkedIn style={{ color: '#0077B5', fontSize: '30px' }} />
+            </IconButton>
+            <IconButton href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+              <Twitter style={{ color: '#1DA1F2', fontSize: '30px' }} />
+            </IconButton>
+            <IconButton href="mailto:info@example.com" target="_blank" rel="noopener noreferrer">
+              <MailOutline style={{ color: '#333', fontSize: '30px' }} />
+            </IconButton>
+
+          </div>
+        </Grid>
+        <Grid item xs={1} style={{ display: 'flex', justifyContent: 'center' }}>
+          <Divider orientation="vertical" style={{ backgroundColor: 'red', width: '1px', }} />
+        </Grid>
+        <Grid item xs={12} md={5} lg={4} xl={3}>
+
+          <Paper elevation={3} style={{ padding: '10px', borderRadius: '8px', background: '#ccc' }}>
+            <img
+              src={sideImage}
+              alt="SideImage"
+              style={{ maxWidth: '100%', maxHeight: '100%', width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </Paper>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 };
 

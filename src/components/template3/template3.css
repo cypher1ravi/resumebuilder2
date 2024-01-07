@@ -16,11 +16,11 @@
   float: left;
 }
 .col-div-4 {
-  width: 35%;
+  width: 40%;
   float: left;
 }
 .col-div-8 {
-  width: 65%;
+  width: 60%;
   float: left;
 }
 .col-div-6 {
@@ -82,38 +82,18 @@
   margin-top: 3px;
 }
 .p1 {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--white);
   letter-spacing: 1px;
   padding-top: 12px;
+  text-align: justify;
 }
 #progress {
-  background: var(--process);
   border-radius: 13px;
   height: 8px;
   width: 100%;
-}
-#progress:after {
-  content: "";
-  display: block;
-  background: var(--white);
-  width: 50%;
-  height: 100%;
-  border-radius: 9px;
-}
-#progress1 {
   background: var(--process);
-  border-radius: 13px;
-  height: 8px;
-  width: 100%;
-}
-#progress1:after {
-  content: "";
-  display: block;
-  background: var(--white);
-  width: 40%;
-  height: 100%;
-  border-radius: 9px;
+  color: var(--white);
 }
 .content-box h3 {
   font-size: 13px;
@@ -126,30 +106,10 @@
 .p2 {
   font-size: 13px;
   margin-bottom: 5px;
-  margin-top: 5px;
+  margin-top: 1px;
   color: var(--white);
 }
-.circle {
-  color: var(--white);
-  font-size: 14px !important;
-  margin-top: 7px;
-}
-.circle1 {
-  color: var(--process);
-  font-size: 14px !important;
-  margin-top: 7px;
-}
-.in {
-  background: var(--white);
-  color: var(--one);
-  padding: 8px;
-  border-radius: 20px;
-  font-size: 14px !important;
-}
-.inp {
-  color: var(--white);
-  font-size: 11px;
-}
+
 .col3 {
   text-align: center;
 }
@@ -181,10 +141,17 @@ h1 span {
   margin-top: 3px;
 }
 .p5 {
-  font-weight: 700;
+  font-weight: bolder;
+
   color: var(--black);
 }
 .span1 {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--black);
+  text-align: justify;
+  text-wrap: wrap;
+}
+a {
+  text-decoration: none;
+  color: var(--white);
 }

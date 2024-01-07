@@ -1,8 +1,13 @@
 import React from 'react'
 import "./template3.css"
 import { useSelector } from 'react-redux';
+import { GitHub, LinkedIn, } from '@mui/icons-material';
+import { LinearProgress } from '@mui/material';
 export default function Template3() {
-    // const skillsInfo = useSelector((state) => state.keySkills.skillList);
+    const personalInfo = useSelector((state) => state.personalInformation);
+    const educationInfo = useSelector((state) => state.education.educationList);
+    const workInfo = useSelector((state) => state.workDetails.workList);
+    const skillsInfo = useSelector((state) => state.keySkills.skillList);
     const profileImage = useSelector((state) => state.profileImg)
     return (
         <div className='tepmlate3'>
@@ -15,146 +20,84 @@ export default function Template3() {
                     <div className="content-box">
                         <h2>Profile Info</h2>
                         <hr className="hr1" />
-                        <p className="p1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-
-                        <h3>Language:</h3>
-                        <p className="p2">English</p>
-                        <div id="progress"></div>
-                        <p className="p2">Hindi</p>
-                        <div id="progress1"></div>
-
+                        <p className="p1">{personalInfo.objective} </p>
+                        <br />
+                        <h2>My Skills:</h2>
+                        <hr className="hr1" />
+                        {skillsInfo.map((s, index) => (
+                            <p key={index}>
+                                <p className="p2">{s.skill}</p>
+                                <LinearProgress variant='determinate' value={s.level} id='progress' color='inherit' />
+                            </p>
+                        ))}
                         <br /><br />
-                        <h2>My Skills</h2>
+                        <h2>Follow Me</h2>
                         <hr className="hr1" />
                         <br />
-                        <div className="col-div-6"><p className="p2">HTML</p></div>
-                        <div className="col-div-6">
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle1"></i>
-                            <i className="fa fa-circle circle1"></i>
+                        <div className="col-div-3"><p className="p2"><GitHub /> </p> </div>
+                        <div className="col-div-7">
+                            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer">{personalInfo.github}</a>
                         </div>
                         <div className="clearfix"></div>
-                        <div className="col-div-6"><p className="p2">CSS</p></div>
-                        <div className="col-div-6">
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle1"></i>
-                        </div>
-                        <div className="clearfix"></div>
-                        <div className="col-div-6"><p className="p2">JQUERY</p></div>
-                        <div className="col-div-6">
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle1"></i>
-                            <i className="fa fa-circle circle1"></i>
-                        </div>
-                        <div className="clearfix"></div>
-                        <div className="col-div-6"><p className="p2">JAVASCRIPT</p></div>
-                        <div className="col-div-6">
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle"></i>
-                            <i className="fa fa-circle circle1"></i>
-                            <i className="fa fa-circle circle1"></i>
-                            <i className="fa fa-circle circle1"></i>
+                        <div className="col-div-3"><p className="p2"><LinkedIn /> </p></div>
+                        <div className="col-div-7">
+                            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer">{personalInfo.linkedin}</a>
                         </div>
 
-                        <div className="clearfix"></div>
-                        <br />
-                        <h2>interests</h2>
-                        <hr className="hr1" />
-                        <br />
-                        <div className="col-div-3 col3">
-                            <i className="fa fa-futbol-o in"></i>
-                            <span className="inp">Sports</span>
-                        </div>
-                        <div className="col-div-3 col3">
-                            <i className="fa fa-futbol-o in"></i>
-                            <span className="inp">Drive</span>
-                        </div>
-                        <div className="col-div-3 col3">
-                            <i className="fa fa-futbol-o in"></i>
-                            <span className="inp">Sports</span>
-                        </div>
-                        <div className="col-div-3 col3">
-                            <i className="fa fa-futbol-o in"></i>
-                            <span className="inp">Sports</span>
-                        </div>
+
                     </div>
                 </div>
 
                 <div className="right-box">
                     <h1>
-                        Devesh<br />
-                        <span>Rai</span>
+                        {personalInfo.firstName}<br />
+                        <span>{personalInfo.lastName}</span>
                     </h1>
-                    <p className="p3">UI & UX DESIGNER</p>
+                    <p className="p3">{personalInfo.title}</p>
 
                     <br />
                     <h2 className="heading">Work Experience</h2>
                     <hr className="hr2" />
                     <br />
-                    <div className="col-div-4">
-                        <p className="p5">2015-2016</p>
-                        <span className="span1">Company Name</span>
-                    </div>
-                    <div className="col-div-8">
-                        <p className="p5">Web Designer</p>
-                        <span className="span1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
-                    </div>
-                    <div className="clearfix"></div>
-                    <br />
-                    <div className="col-div-4">
-                        <p className="p5">2015-2016</p>
-                        <span className="span1">Company Name</span>
-                    </div>
-                    <div className="col-div-8">
-                        <p className="p5">Web Designer</p>
-                        <span className="span1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
-                    </div>
-                    <div className="clearfix"></div>
-                    <br />
-                    <div className="col-div-4">
-                        <p className="p5">2015-2016</p>
-                        <span className="span1">Company Name</span>
-                    </div>
-                    <div className="col-div-8">
-                        <p className="p5">Web Designer</p>
-                        <span className="span1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
-                    </div>
-                    <div className="clearfix"></div>
+                    {workInfo.map((w, index) => (
+                        <p key={index}>
+                            <div className="col-div-4">
+                                <p className="p5">{w.startDate} - {w.endDate}</p>
+                                <span className="span1">{w.company} </span>
+                            </div>
+                            <div className="col-div-8">
+                                <p className="p5">{w.position}</p>
+                                <span className="span1">{w.workDesc}</span>
+                            </div>
+                            <div className="clearfix"></div>
+                            <br />
+                        </p>
+                    ))}
 
-                    <br />
+
                     <h2 className="heading">My Education</h2>
                     <hr className="hr2" />
                     <br />
-                    <div className="col-div-4">
-                        <p className="p5">2015-2016</p>
-                        <span className="span1">Company Name</span>
-                    </div>
-                    <div className="col-div-8">
-                        <p className="p5">Web Designer</p>
-                        <span className="span1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
-                    </div>
-                    <div className="clearfix"></div>
-                    <br />
-                    <div className="col-div-4">
-                        <p className="p5">2015-2016</p>
-                        <span className="span1">Company Name</span>
-                    </div>
-                    <div className="col-div-8">
-                        <p className="p5">Web Designer</p>
-                        <span className="span1">Lorem Ipsum is simply dummy text of the .</span>
-                    </div>
-                    <div className="clearfix"></div>
+                    {educationInfo.map((e, index) => (
+                        <div key={index}>
+
+                            <div className="col-div-4">
+                                <p className="p5">{e.year}</p>
+                                <span className="span1">{e.institution}</span>
+                            </div>
+                            <div className="col-div-8">
+                                <p className="p5">{e.degree}</p>
+                                <span className="span1"></span>
+                            </div>
+                            <div className="clearfix"></div>
+                            <br />
+                        </div>
+                    ))}
+
+
                 </div>
-                <div className="clearfix"></div>
 
             </div>
-        </div>
+        </div >
     )
 }

@@ -1,7 +1,7 @@
 .main-content {
-  min-height: 100vh;
+  max-height: 100vh;
   width: 100%;
-  margin: 0.5rem auto;
+  margin: 1rem auto;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
@@ -20,19 +20,19 @@
 .left-content {
   padding: 0.5rem 1rem;
 }
-.profile {
+.profile1 {
   width: 100%;
   border-bottom: 1px solid #002333;
 }
 
 .image1 {
-  width: 90%;
+  width: 100%;
   text-align: center;
 }
-.profile img {
-  width: 100%;
+.profile1 img {
+  width: 60%;
   border-radius: 50%;
-  border: 5px solid #002333;
+  border: 3px solid #ffffff;
 }
 
 .name {
@@ -49,8 +49,7 @@
   color: #94d9ea;
   text-align: center;
   text-transform: uppercase;
-
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
 }
 
 .main-title {
@@ -58,7 +57,7 @@
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: #f7f7f7ec;
-  padding-top: 3rem;
+  padding-top: 1rem;
 }
 
 .contact-info ul {
