@@ -5,10 +5,14 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
-import logo from "../images/almabetter_logo.svg"
+import logo from "../images/almabetter_logo.svg";
+
 const MyToolbar = styled(Toolbar)({
     backgroundColor: '#3B3486',
-    '@media (max-width: 600px)': { // Adjust styles for screens with a max-width of 600px
+    display: 'flex',
+    justifyContent: 'space-between', // Align logo and buttons
+    alignItems: 'center',
+    '@media (max-width: 600px)': {
         flexDirection: 'column',
         alignItems: 'center',
         textAlign: 'center',
@@ -16,33 +20,29 @@ const MyToolbar = styled(Toolbar)({
 });
 
 const MyButton = styled(Button)({
-    marginLeft: '16px',
-
-    '@media (max-width: 600px)': {
-        margin: '8px 0',
-    },
+    // Add any specific styles if needed
 });
 
 const MyTypography = styled(Typography)({
-    flexGrow: 1,
-    float: 'right',
-    '@media (max-width: 600px)': {
-        margin: '8px 0',
-    },
+    // Add any specific styles if needed
+});
+
+const LogoImage = styled('img')({
+    width: '70%',
+    height: 'auto',
 });
 
 function Navbar() {
     return (
-        <AppBar position="sticky" z>
+        <AppBar position="sticky">
             <MyToolbar>
                 <MyTypography component="div">
                     <MyButton component={Link} to="/">
-                        <img src={logo} alt="AlmaBatter" style={{ width: '70%' }} />
+                        <LogoImage src={logo} alt="AlmaBatter" />
                     </MyButton>
                 </MyTypography>
                 <div>
                     <MyButton color="inherit" component={Link} to="/">Resume Templates</MyButton>
-                    {/* <MyButton color="inherit" component={Link} to="/details">Details</MyButton> */}
                     <MyButton color="inherit" component={Link} to="/Preview">My Resumes</MyButton>
                     <MyButton color="inherit" component={Link} to="/about">About Us</MyButton>
                 </div>
