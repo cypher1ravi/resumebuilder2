@@ -50,7 +50,7 @@ const Home = () => {
         <Typography variant="h4" sx={{ marginTop: '12px' }}>
             Templates
         </Typography>
-        <Typography variant="subtitle1" sx={{ marginBottom: '12px' }}>Select a Template to Get Started</Typography>
+        <Typography variant="h6" sx={{ marginBottom: '12px' }}>Select a Template to Get Started</Typography>
         <Grid container spacing={2}>
             {images.map((image, index) => (
                 <Grid item xs={12} sm={6} md={4} lg={3} key={index}>

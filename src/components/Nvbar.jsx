@@ -7,7 +7,7 @@ import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
 import logo from "../images/almabetter_logo.svg"
 const MyToolbar = styled(Toolbar)({
-    backgroundColor: '#90a7fc',
+    backgroundColor: '#3B3486',
     '@media (max-width: 600px)': { // Adjust styles for screens with a max-width of 600px
         flexDirection: 'column',
         alignItems: 'center',
@@ -17,6 +17,7 @@ const MyToolbar = styled(Toolbar)({
 
 const MyButton = styled(Button)({
     marginLeft: '16px',
+
     '@media (max-width: 600px)': {
         margin: '8px 0',
     },
@@ -24,6 +25,7 @@ const MyButton = styled(Button)({
 
 const MyTypography = styled(Typography)({
     flexGrow: 1,
+    float: 'right',
     '@media (max-width: 600px)': {
         margin: '8px 0',
     },
@@ -31,13 +33,11 @@ const MyTypography = styled(Typography)({
 
 function Navbar() {
     return (
-        <AppBar position="sticky" sx={{
-            // zIndex: '1'
-        }}>
+        <AppBar position="sticky" z>
             <MyToolbar>
                 <MyTypography component="div">
                     <MyButton component={Link} to="/">
-                        <img src={logo} alt="AlmaBatter" style={{ width: '8rem' }} />
+                        <img src={logo} alt="AlmaBatter" style={{ width: '70%' }} />
                     </MyButton>
                 </MyTypography>
                 <div>

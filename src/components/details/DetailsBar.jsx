@@ -15,7 +15,7 @@ const drawerWidth = 200;
 
 export default function DetailsBar() {
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const location = useLocation(); // Get the current location
+    const location = useLocation();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
