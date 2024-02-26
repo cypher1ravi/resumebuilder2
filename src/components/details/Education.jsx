@@ -55,7 +55,7 @@ export default function Educatio() {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
-                        label="Institution"
+                        label="University"
                         variant="outlined"
                         fullWidth
                         {...register("institution", { required: true })}
@@ -63,7 +63,7 @@ export default function Educatio() {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                     <TextField
-                        label="Year"
+                        label=" Passing Year"
                         variant="outlined"
                         fullWidth
                         {...register("year", { required: true })}
