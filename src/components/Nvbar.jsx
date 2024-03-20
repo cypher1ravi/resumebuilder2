@@ -7,15 +7,16 @@ import { styled } from '@mui/system';
 import { Link } from 'react-router-dom';
 import logo from "../images/almabetter_logo.svg";
 
+// Styled components for customizing MUI components
 const MyToolbar = styled(Toolbar)({
-    backgroundColor: '#3B3486',
+    backgroundColor: '#3B3486', // Background color for the toolbar
     display: 'flex',
-    justifyContent: 'space-between', // Align logo and buttons
-    alignItems: 'center',
+    justifyContent: 'space-between', // Align logo and buttons horizontally
+    alignItems: 'center', // Align items vertically
     '@media (max-width: 600px)': {
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
+        flexDirection: 'column', // Change flex direction to column for smaller screens
+        alignItems: 'center', // Align items vertically for smaller screens
+        textAlign: 'center', // Center text content for smaller screens
     },
 });
 
@@ -28,19 +29,22 @@ const MyTypography = styled(Typography)({
 });
 
 const LogoImage = styled('img')({
-    width: '70%',
-    height: 'auto',
+    width: '70%', // Set width of the logo image
+    height: 'auto', // Maintain aspect ratio
 });
 
 function Navbar() {
     return (
         <AppBar position="sticky">
+            {/* Customized toolbar */}
             <MyToolbar>
+                {/* Logo */}
                 <MyTypography component="div">
                     <MyButton component={Link} to="/">
                         <LogoImage src={logo} alt="AlmaBatter" />
                     </MyButton>
                 </MyTypography>
+                {/* Navigation links */}
                 <div>
                     <MyButton color="inherit" component={Link} to="/">Resume Templates</MyButton>
                     <MyButton color="inherit" component={Link} to="/Preview">My Resumes</MyButton>

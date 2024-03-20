@@ -13,17 +13,23 @@ import { Outlet, NavLink, useLocation } from 'react-router-dom';
 
 const drawerWidth = 200;
 
+// Functional component for the details sidebar
 export default function DetailsBar() {
+    // State to manage the open/close state of the drawer in mobile view
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    // Accessing the current location using useLocation hook from react-router-dom
     const location = useLocation();
 
+    // Function to handle drawer toggle in mobile view
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
+    // JSX rendering
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
+            {/* Drawer for mobile view */}
             <Hidden mdUp>
                 <Drawer
                     variant="temporary"
@@ -42,6 +48,7 @@ export default function DetailsBar() {
                     <Toolbar />
                     <Box sx={{ overflow: 'auto' }}>
                         <List>
+                            {/* Mapping through the menu items and rendering them */}
                             {[
                                 { text: 'Personal', NavLink: '/details/' },
                                 { text: 'Work Experience', NavLink: '/details/workExperience' },
@@ -64,6 +71,7 @@ export default function DetailsBar() {
                     </Box>
                 </Drawer>
             </Hidden>
+            {/* Drawer for desktop view */}
             <Hidden smDown>
                 <Drawer
                     variant="permanent"
@@ -78,6 +86,7 @@ export default function DetailsBar() {
                     <Toolbar />
                     <Box sx={{ overflow: 'auto' }}>
                         <List>
+                            {/* Mapping through the menu items and rendering them */}
                             {[
                                 { text: 'Personal', NavLink: '/details/' },
                                 { text: 'Work Experience', NavLink: '/details/workExperience' },
@@ -100,8 +109,10 @@ export default function DetailsBar() {
                     </Box>
                 </Drawer>
             </Hidden>
+            {/* Main content area */}
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                 <Toolbar />
+                {/* Rendering the child components */}
                 <Outlet />
             </Box>
         </Box>

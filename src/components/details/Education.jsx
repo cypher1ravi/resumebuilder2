@@ -1,110 +1,126 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { TextField, Button, Grid, IconButton, List, ListItem, ListItemText } from '@mui/material';
-import { Delete as DeleteIcon } from '@mui/icons-material';
-import { useDispatch, useSelector } from 'react-redux';
-import { addEducation, deleteEducation } from '../../redux/actions/educationAction'
-import { useNavigate } from 'react-router-dom';
-export default function Educatio() {
-    const { register, handleSubmit, reset } = useForm();
-    const dispatch = useDispatch();
-    const navigate = useNavigate()
-    const educationList = useSelector((state) => state.education.educationList)
-    const [education, SetEducation] = useState([])
-    const onSubmit = (data) => {
-        const newEducation = {
-            institution: data.institution,
-            degree: data.degree,
-            subject: data.subject,
-            year: data.year
-        }
-        SetEducation([...education, newEducation])
-        dispatch(addEducation(newEducation))
-        reset();
-    }
-    const onDelete = (index) => {
-        dispatch(deleteEducation(index));
-    }
-    const onBack = () => {
-        navigate('/details/workExperience')
-    }
-    const onNext = () => {
-        navigate('/details/keySkills')
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import CssBaseline from '@mui/material/CssBaseline';
+import Toolbar from '@mui/material/Toolbar';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
+import Hidden from '@mui/material/Hidden';
+import { Outlet, NavLink, useLocation } from 'react-router-dom';
 
-    }
+const drawerWidth = 200;
 
+// Functional component for the details sidebar
+export default function DetailsBar() {
+    // State to manage the open/close state of the drawer in mobile view
+    const [mobileOpen, setMobileOpen] = React.useState(false);
+    // Accessing the current location using useLocation hook from react-router-dom
+    const location = useLocation();
+
+    // Function to handle drawer toggle in mobile view
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
+    };
+
+    // JSX rendering
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <Grid container spacing={2}>
-
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        label="Degree"
-                        variant="outlined"
-                        fullWidth
-                        {...register("degree", { required: true })}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        label="Subject"
-                        variant="outlined"
-                        fullWidth
-                        {...register("subject", { required: true })}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        label="University"
-                        variant="outlined"
-                        fullWidth
-                        {...register("institution", { required: true })}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <TextField
-                        label=" Passing Year"
-                        variant="outlined"
-                        fullWidth
-                        {...register("year", { required: true })}
-                    />
-                </Grid>
-                <Grid item>
-                    <Button type="submit" variant="contained" color="primary">
-                        Add
-                    </Button>
-                </Grid>
-            </Grid>
-            {educationList.length > 0 && (
-                <div>
-                    <h3>Added Education:</h3>
-                    <List>
-                        {educationList.map((edu, index) => (
-                            <ListItem key={index}>
-                                <ListItemText>
-                                    {edu.degree} In {edu.subject} From {edu.institution}, In {edu.year}
-                                </ListItemText>
-                                <IconButton onClick={() => onDelete(index)}>
-                                    <DeleteIcon color='error' />
-                                </IconButton>
-                            </ListItem>
-                        ))}
-                    </List>
-                </div>
-            )}
-
-            <Grid container justifyContent="space-between" marginTop={2}>
-                <Grid item>
-                    <Button variant="contained" color="warning" onClick={onBack}>
-                        Back
-                    </Button>
-                </Grid>
-                <Grid item>
-                    <Button type="button" onClick={onNext} variant="contained" color="warning">
-                        Next
-                    </Button>
-                </Grid>
-            </Grid>
-        </form>
+        <Box sx={{ display: 'flex' }}>
+            <CssBaseline />
+            
+            {/* Drawer for mobile view */}
+            <Hidden mdUp>
+                <Drawer
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true,
+                    }}
+                    sx={{
+                        width: drawerWidth,
+                        zIndex: '0',
+                        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+                    }}
+                >
+                    {/* Divider and toolbar for the drawer */}
+                    <Divider />
+                    <Toolbar />
+                    <Box sx={{ overflow: 'auto' }}>
+                        <List>
+                            {/* Mapping through the menu items and rendering them */}
+                            {[
+                                { text: 'Personal', NavLink: '/details/' },
+                                { text: 'Work Experience', NavLink: '/details/workExperience' },
+                                { text: 'Education', NavLink: '/details/education' },
+                                { text: 'Key Skills', NavLink: '/details/keySkills' },
+                            ].map((item, index) => (
+                                <ListItem
+                                    key={index}
+                                    disablePadding
+                                    sx={{
+                                        backgroundColor: location.pathname === item.NavLink ? '#e0e0e0' : 'transparent',
+                                    }}
+                                >
+                                    <ListItemButton component={NavLink} to={item.NavLink}>
+                                        <ListItemText primary={item.text} />
+                                    </ListItemButton>
+                                </ListItem>
+                            ))}
+                        </List>
+                    </Box>
+                </Drawer>
+            </Hidden>
+            
+            {/* Drawer for desktop view */}
+            <Hidden smDown>
+                <Drawer
+                    variant="permanent"
+                    sx={{
+                        width: drawerWidth,
+                        flexShrink: 0,
+                        zIndex: '0',
+                        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+                    }}
+                >
+                    {/* Divider and toolbar for the drawer */}
+                    <Divider />
+                    <Toolbar />
+                    <Box sx={{ overflow: 'auto' }}>
+                        <List>
+                            {/* Mapping through the menu items and rendering them */}
+                            {[
+                                { text: 'Personal', NavLink: '/details/' },
+                                { text: 'Work Experience', NavLink: '/details/workExperience' },
+                                { text: 'Education', NavLink: '/details/education' },
+                                { text: 'Key Skills', NavLink: '/details/keySkills' },
+                            ].map((item, index) => (
+                                <ListItem
+                                    key={item.text}
+                                    disablePadding
+                                    sx={{
+                                        backgroundColor: location.pathname === item.NavLink ? '#e0e0e0' : 'transparent',
+                                    }}
+                                >
+                                    <ListItemButton component={NavLink} to={item.NavLink}>
+                                        <ListItemText primary={item.text} />
+                                    </ListItemButton>
+                                </ListItem>
+                            ))}
+                        </List>
+                    </Box>
+                </Drawer>
+            </Hidden>
+            
+            {/* Main content area */}
+            <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+                {/* Toolbar for the main content area */}
+                <Toolbar />
+                {/* Rendering the child components */}
+                <Outlet />
+            </Box>
+        </Box>
     );
 }
