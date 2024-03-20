@@ -21,8 +21,8 @@ import Template1 from './template1/Template1';
 import Template2 from './template2/Template2';
 import Template3 from './template3/Template3';
 import Template4 from './template4/Template4';
-// import Template5 from './Template5';
 
+// Styles for components
 const containerStyle = {
     width: '100%',
     minHeight: '100vh',
@@ -33,17 +33,16 @@ const containerStyle = {
 
 const paperStyle = {
     width: '100%',
-    // padding: '20px',
-    // marginBottom: '20px',
-    boxSizing: 'border-box',
 };
 
 export default function Preview() {
+    // Redux state for selected card
     const card = useSelector((state) => state.selectedCard);
-    const previewRef = useRef(null);
-    const [fileName, setFileName] = useState('preview');
-    const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+    const previewRef = useRef(null); // Reference to the preview paper
+    const [fileName, setFileName] = useState('preview'); // State for file name input
+    const [showSuccessDialog, setShowSuccessDialog] = useState(false); // State for showing success dialog
 
+    // Function to generate PDF from preview
     const generatePDF = () => {
         const doc = new jsPDF({
             orientation: 'portrait',
@@ -69,18 +68,21 @@ export default function Preview() {
                 selectedComponent = <div>No template selected</div>;
         }
 
+        // Convert the preview to canvas and then to PDF
         html2canvas(previewRef.current).then((canvas) => {
             const imgData = canvas.toDataURL('image/png/jpg');
-            doc.addImage(imgData, 'PNG', 0, 0, 210, 297);
-            doc.save(`${fileName}.pdf`);
-            setShowSuccessDialog(true);
+            doc.addImage(imgData, 'PNG', 0, 0, 210, 297); // Add image to PDF
+            doc.save(`${fileName}.pdf`); // Save PDF with provided file name
+            setShowSuccessDialog(true); // Show success dialog
         });
     };
 
+    // Function to close the success dialog
     const handleCloseSuccessDialog = () => {
         setShowSuccessDialog(false);
     };
 
+    // Render the preview component
     return (
         <>
             <Typography variant="h5" style={{ margin: '10px' }}>
@@ -89,6 +91,7 @@ export default function Preview() {
 
             <div style={containerStyle}>
                 <Grid container spacing={3}>
+                    {/* Preview area */}
                     <Grid item xs={12} md={8}>
                         <Paper style={paperStyle} ref={previewRef}>
                             {(() => {
@@ -107,11 +110,14 @@ export default function Preview() {
                             })()}
                         </Paper>
                     </Grid>
+
+                    {/* File creation area */}
                     <Grid item xs={12} md={4}>
                         <Typography variant="h6" style={{ marginBottom: '10px' }}>
                             Create File
                         </Typography>
                         <Card variant='outlined' style={{ padding: '20px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                            {/* Input field for file name */}
                             <TextField
                                 label="File Name"
                                 value={fileName}
@@ -119,6 +125,7 @@ export default function Preview() {
                                 variant="outlined"
                                 style={{ marginBottom: '10px', width: '100%' }}
                             />
+                            {/* Button to generate PDF */}
                             <Button variant="contained" color="primary" onClick={generatePDF} style={{ marginBottom: '10px' }}>
                                 Save
                             </Button>
@@ -127,6 +134,7 @@ export default function Preview() {
                 </Grid>
             </div>
 
+            {/* Success dialog */}
             <Dialog open={showSuccessDialog} onClose={handleCloseSuccessDialog}>
                 <DialogTitle style={{ textAlign: 'center' }}>
                     <CheckCircleIcon color="primary" fontSize="large" />

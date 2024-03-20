@@ -3,17 +3,24 @@ import { IconButton, Grid, Paper, Divider, Typography } from '@mui/material';
 import { Facebook, WhatsApp, LinkedIn, Twitter, MailOutline } from '@mui/icons-material';
 import sideImage from '../images/About-us-image.png';
 
+// AboutUs functional component
 const AboutUs = () => {
   return (
+    // Main grid container
     <Grid container padding={1}>
+      {/* Section for Resume Builder title */}
       <Grid item>
         <Typography variant='h3'>Resume Builder</Typography>
+        {/* Divider for visual separation */}
         <Divider orientation="horizontal" style={{ backgroundColor: 'blue', height: '3px' }} />
       </Grid>
 
+      {/* Main content grid container */}
       <Grid container spacing={0} paddingTop={'2rem'}>
-        <Grid item xs={12} md={6} lg={7} xl={8} >
+        {/* Left side content */}
+        <Grid item xs={12} md={6} lg={7} xl={8}>
           <div>
+            {/* Paragraphs introducing the Resume Builder */}
             <p>
               Welcome to our Resume Builder website! We are dedicated to helping you create professional and visually
               appealing resumes that stand out.
@@ -32,10 +39,10 @@ const AboutUs = () => {
               reach out to us. We're here to help you on your journey to career success.
             </p>
           </div>
+          {/* Social media sharing icons */}
           <div style={{ margin: '20px' }}>
-            <h3>Share With your friend
-            </h3>
-
+            <h3>Share With your friend</h3>
+            {/* IconButton components with social media links */}
             <IconButton href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
               <Facebook style={{ color: '#1877f2', fontSize: '30px' }} />
             </IconButton>
@@ -51,14 +58,17 @@ const AboutUs = () => {
             <IconButton href="mailto:info@example.com" target="_blank" rel="noopener noreferrer">
               <MailOutline style={{ color: '#333', fontSize: '30px' }} />
             </IconButton>
-
           </div>
         </Grid>
+
+        {/* Divider for visual separation */}
         <Grid item xs={1} style={{ display: 'flex', justifyContent: 'center' }}>
           <Divider orientation="vertical" style={{ backgroundColor: 'red', width: '1px', }} />
         </Grid>
-        <Grid item xs={12} md={5} lg={4} xl={3}>
 
+        {/* Right side content (Image) */}
+        <Grid item xs={12} md={5} lg={4} xl={3}>
+          {/* Paper container for the side image */}
           <Paper elevation={3} style={{ padding: '10px', borderRadius: '8px', background: '#ccc' }}>
             <img
               src={sideImage}
@@ -72,4 +82,5 @@ const AboutUs = () => {
   );
 };
 
+// Exporting the AboutUs component
 export default AboutUs;

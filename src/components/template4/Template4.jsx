@@ -9,22 +9,23 @@ import WorkIcon from '@mui/icons-material/Work';
 import LaptopCodeIcon from '@mui/icons-material/Laptop';
 import { useSelector } from 'react-redux';
 
-
 import "./template4.css";
 
+// Template4 functional component
 export default function Template4() {
+    // Redux state selectors
     const educationInfo = useSelector((state) => state.education.educationList);
     const workInfo = useSelector((state) => state.workDetails.workList);
     const personalInfo = useSelector((state) => state.personalInformation);
     const skillsInfo = useSelector((state) => state.keySkills.skillList);
-    const profileImage = useSelector((state) => state.profileImg)
+    const profileImage = useSelector((state) => state.profileImg);
 
-
-
+    // JSX rendering
     return (
         <div className='template4'>
             <div className="wrapper">
                 <div className="intro">
+                    {/* Profile information section */}
                     <div className="profile2">
                         <div className="photo">
                             <img alt="Chih-Hsiang Chen" src={profileImage.imageSrc} />
@@ -34,10 +35,12 @@ export default function Template4() {
                             <p className="profession">{personalInfo.title}</p>
                         </div>
                     </div>
+                    {/* Introduction and contact section */}
                     <div className="intro-section about">
                         <h1 className="title">about me</h1>
                         <p className="paragraph">
-                            {personalInfo.objective}</p>
+                            {personalInfo.objective}
+                        </p>
                     </div>
                     <div className="intro-section contact">
                         <h1 className="title">Contact</h1>
@@ -53,8 +56,8 @@ export default function Template4() {
                             <i> <EmailIcon /></i>
                             <span>{personalInfo.email}</span>
                         </div>
-
                     </div>
+                    {/* Social media follow section */}
                     <div className="intro-section follow">
                         <h1 className="title">Follow</h1>
                         <div className="info-section link">
@@ -65,10 +68,11 @@ export default function Template4() {
                             <i><LinkedInIcon /></i>
                             <a href="http://linkedin.com" target="_blank" rel="noopener noreferrer"><span>Linkedin</span></a>
                         </div>
-
                     </div>
                 </div>
+                {/* Detailed information section */}
                 <div className="detail">
+                    {/* Education timeline section */}
                     <div className="detail-section edu">
                         <div className="detail-title">
                             <i><SchoolIcon /></i>
@@ -82,87 +86,44 @@ export default function Template4() {
                                     <time>{edu.year}</time>
                                 </div>
                             ))}
-
-                        </div>
-                        <div className="detail-section edu">
-                            <div className="detail-title">
-                                <i> <WorkIcon /></i>
-                                <span>Work Experience</span>
-                            </div>
-                            <div className="detail-content">
-                                {workInfo.map((w, index) => (
-                                    <div className="timeline-block" key={index}>
-                                        <h1>{w.position}</h1>
-                                        <h5>{w.company}</h5>
-                                        <time>{w.startDate}-{w.endDate}</time>
-                                        <p>{w.workDesc}</p>
-                                    </div>
-                                ))}
-                            </div>
                         </div>
                     </div>
-                    <div className="detail-section pg-skill">
+                    {/* Work experience timeline section */}
+                    <div className="detail-section work">
                         <div className="detail-title">
-                            <i><LaptopCodeIcon /></i>
-                            <span> skills</span>
+                            <i><WorkIcon /></i>
+                            <span>Work Experience</span>
                         </div>
                         <div className="detail-content">
-                            <ul className="pg-list">
+                            {workInfo.map((w, index) => (
+                                <div className="timeline-block" key={index}>
+                                    <h1>{w.position}</h1>
+                                    <h5>{w.company}</h5>
+                                    <time>{w.startDate}-{w.endDate}</time>
+                                    <p>{w.workDesc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    {/* Skills section */}
+                    <div className="detail-section skills">
+                        <div className="detail-title">
+                            <i><LaptopCodeIcon /></i>
+                            <span>Skills</span>
+                        </div>
+                        <div className="detail-content">
+                            <ul className="skill-list">
                                 {skillsInfo.map((s, index) => (
                                     <li key={index}>
                                         <span>{s.skill}</span>
-                                        <div className="sb-skeleton">
-                                            <div className="skillbar" style={{ "--pgbar-length": `${s.level}%` }}></div>
+                                        <div className="skill-bar">
+                                            <div className="skill-progress" style={{ width: `${s.level}%` }}></div>
                                         </div>
                                     </li>
                                 ))}
                             </ul>
                         </div>
-
                     </div>
-                    {/* <div className="detail-section tool-skill">
-                        <div className="detail-title">
-                            <ConstructionIcon />
-                            <span>Development Tools</span>
-                        </div>
-                        <div className="detail-content">
-                            <ul className="tool-list">
-                                <li>
-                                    <svg viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="45"></circle>
-                                        <circle className="cbar" cx="50" cy="50" r="45" style={{ "--percent": "0.6" }}></circle>
-                                    </svg>
-                                    <span className="tl-name">Photoshop</span>
-                                    <span className="tl-exp">60%</span>
-                                </li>
-                                <li>
-                                    <svg viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="45"></circle>
-                                        <circle className="cbar" cx="50" cy="50" r="45" style={{ "--percent": "0.8" }}></circle>
-                                    </svg>
-                                    <span className="tl-name">Sublime</span>
-                                    <span className="tl-exp">80%</span>
-                                </li>
-                                <li>
-                                    <svg viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="45"></circle>
-                                        <circle className="cbar" cx="50" cy="50" r="45" style={{ "--percent": "0.7" }}></circle>
-                                    </svg>
-                                    <span className="tl-name">Git</span>
-                                    <span className="tl-exp">70%</span>
-                                </li>
-                                <li>
-                                    <svg viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="45"></circle>
-                                        <circle className="cbar" cx="50" cy="50" r="45" style={{ "--percent": "0.74" }}></circle>
-                                    </svg>
-                                    <span className="tl-name">NPM</span>
-                                    <span className="tl-exp">74%</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div> */}
-
                 </div>
             </div>
         </div >

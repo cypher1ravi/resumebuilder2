@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { TextField, Button, Container, Grid, InputAdornment, } from '@mui/material';
+import { TextField, Button, Container, Grid, InputAdornment } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
@@ -13,32 +13,38 @@ import { updatePersonalInformation } from '../../redux/actions/personalInfoActio
 import { GitHub, LinkedIn } from '@mui/icons-material';
 import ProfileImg from './ProfileImg';
 
-
+// Component for capturing personal details
 export default function PersonalDetails() {
+    // useForm hook for handling form state
     const { register, handleSubmit } = useForm();
+    // useDispatch hook to dispatch actions to Redux store
     const dispatch = useDispatch();
-    const navigate = useNavigate()
+    // useNavigate hook to navigate between routes
+    const navigate = useNavigate();
 
-
-
+    // Function to handle form submission
     const onSubmit = (data) => {
+        // Dispatching action to update personal information in Redux store
         dispatch(updatePersonalInformation(data));
-        navigate('/details/workExperience')
-
-
+        // Navigating to the next step in the form
+        navigate('/details/workExperience');
     };
-    return (
-        <Container >
-            <form onSubmit={handleSubmit(onSubmit)}>
 
+    // JSX rendering
+    return (
+        <Container>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <Grid container spacing={10}>
+                    {/* Grid item for profile image */}
                     <Grid item sm={3}>
                         <Grid container spacing={2}>
                             <ProfileImg />
                         </Grid>
                     </Grid>
+                    {/* Grid item for personal details form */}
                     <Grid item sx={12} sm={8}>
                         <Grid container spacing={2}>
+                            {/* Text field for first name */}
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     label="First name"
@@ -53,7 +59,7 @@ export default function PersonalDetails() {
                                         ),
                                     }}
                                 />
-                            </Grid>
+                           </Grid>
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     label="Last name"
