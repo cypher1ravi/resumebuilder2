@@ -1,12 +1,47 @@
-# Getting Started with Create React App
+# Getting Started with ResumeBuilder Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+
+The ResumeBuilder project is a web-based application designed to simplify the process of creating professional resumes. With ResumeBuilder, users can easily input their personal information, work experience, education, skills, and other relevant details, and generate a well-formatted resume that can be downloaded or printed.
+
+## Features
+
+- **User-Friendly Interface:** The application provides a simple and intuitive interface for users to input their resume details.
+
+- **Customization Options:** Users can choose from various templates and formatting options to customize the appearance of their resume.
+
+- **Multiple Sections:** The application supports multiple sections such as personal information, work experience, education, skills, projects, and more.
+
+- **Save and Edit:** Users can save their progress and come back later to edit or update their resume.
+
+- **Download and Print:** Once the resume is complete, users can download it in PDF format or print it directly from the application.
+
+## Technologies Used
+
+- **Frontend:** Create React App
+- **State Management:** React Hooks
+- **Styling:** Material Ui
+- **Icons:** Material icons
+- **Deployment:** Vercel
+
+## Getting Started
+
+### Installation
+
+1. Clone the repository:
+   This project was bootstrapped with [Create React App]
+
+```bash
+git clone https://github.com/cypher1ravi/resumebuilder2.git
+```
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+```bash
+npm start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,12 +49,16 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+```bash
+npm test
+```
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+```bash
+npm run build
+```
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,7 +68,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+```bash
+npm run eject
+```
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
@@ -39,32 +80,36 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Preview
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Live demo here: [https://resumebuilder2.vercel.app/#/](https://resumebuilder2.vercel.app/#/)
 
-### Analyzing the Bundle Size
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Fill in your personal information, work experience, education, skills, etc.
+2. Choose a template and customize the formatting as desired.
+3. Preview your resume and make any necessary adjustments.
+4. Download or print your resume.
 
-### Making a Progressive Web App
+## Contribution
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Contributions are welcome! If you'd like to contribute to this project, please follow these steps:**
 
-### Advanced Configuration
+1. Fork the repository.
+2. Create a new branch (git checkout -b feature/your-feature).
+3. Make your changes.
+4. Commit your changes (git commit -am 'Add some feature').
+5. Push to the branch (git push origin feature/your-feature).
+6. Create a new Pull Request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contact
 
-### Deployment
+You can find us on:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Ravindra:** [Github](https://github.com/cypher1ravi)
+- **Ravindra** [ LinkedIn](https://www.linkedin.com/in/ravindrachaubey/)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Devesh:-** [Github](https://github.com/Me-Deveshrai)
+- **Devesh:-** [ LinkedIn](https://www.linkedin.com/in/devesh-rai-pro007/)
